@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../style.css" />
+    <title>page to page</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="button" data-next="page17.html">update</div>
+      <div class="search-button" data-search="../index.html">Search</div>
+      <div class="text">
+        <!-- 첫 문단: 항상 보임, hover 시 sub 노출 -->
+        <p class="t1" data-hover-sub="sub">내용을 입력하세요.</p>
+        <!-- 클릭(update)하면 나타나는 문단. data-show/data-hide로 이미지 class 이름 지정 -->
+        <p class="t2" data-step data-show="scene-image">내용을 입력하세요.</p>
+      </div>
+      <div class="sub">
+        <p>출처/설명을 입력하세요.</p>
+      </div>
+      <!-- 이미지 준비되면 추가:
+      <img class="scene-image" src="../source/image/파일명" alt="" />
+      <img class="hover-image" src="../source/image/파일명" alt="" />
+      -->
+    </div>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,820 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeoSB00-05';
+  src: url(source/font/AppleSDGothicNeoSB00-05.otf)  format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  unicode-range: U+AC00-D7A3, U+1100-11FF, U+3130-318F, U+3000-3009,
+    U+300C-303F, U+25A0-25CA, U+25CC-25FF, U+4E00-9FFF;
+}
+@font-face {
+  font-family: 'AppleSDGothicNeoSB00-05';
+  src: url(source/font/CoralPixels-Regular.ttf)  format('opentype');
+  unicode-range: U+0000-02AF, U+2010-2027, U+2030-205E, U+25CB, U+300A-300B;
+  font-weight: normal;
+  font-style: normal;
+  size-adjust: 110%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'AppleSDGothicNeoSB00-05', sans-serif;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  background-color: #000000;
+  line-height: 1.4;
+}
+::selection {
+  background-color: #b321ed;
+  color: #1e1c24;
+}
+
+.main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 12fr 210fr 40fr;
+  min-height: 100vh;
+  margin-top: 0em;
+  padding-left: 10em;
+  padding-right: 1em;
+}
+
+.button {
+  position: absolute;
+  left: 1em;
+  top: 0;
+  padding-right: -4em;
+  cursor: pointer;
+  color: #b321ed;
+  font-size: 2.4em;
+}
+
+.search-button {
+  position: absolute;
+  left: 1em;
+  top: 7%;
+  cursor: pointer;
+  color: #b321ed;
+  font-size: 2.4em;
+}
+
+.text {
+  grid-column: 2;
+  color: white;
+  font-size: 2.4em;
+  line-height: 1.25em;
+  padding-right: 1em;
+  word-spacing: -0.07em;
+  margin-top: 0.3em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sub p,
+.sub2 p,
+.sub3 p,
+.sub4 p,
+.sub5 p,
+.sub6 p,
+.sub7 p,
+.sub8 p {
+  margin: 0;
+  /* 왼끝 맞춤 유지, 줄바꿈만 고르게 다듬기 */
+  text-align: left;
+  text-wrap: pretty;
+}
+
+.text p {
+  margin: 0;
+  transform: scaleX(0.58);
+  transform-origin: left top;
+  width: 172.41%;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.t1:hover,
+.t2:hover,
+.t3:hover,
+.t4:hover,
+.t5:hover,
+.t6:hover,
+.t7:hover,
+.t8:hover,
+.t9:hover,
+.t10:hover,
+.t11:hover,
+.t12:hover,
+.t13:hover,
+.t14:hover,
+.t15:hover,
+.t16:hover {
+  color: #b321ed;
+}
+
+.t2,
+.t3,
+.t4,
+.t5,
+.t6,
+.t7,
+.t9,
+.t10,
+.t11,
+.t12,
+.t14,
+.t15,
+.t16 {
+  display: none;
+}
+
+.text p:nth-of-type(even) {
+  padding-left: 3em;
+}
+
+.t2.visible,
+.t3.visible,
+.t4.visible,
+.t5.visible,
+.t6.visible,
+.t7.visible,
+.t9.visible,
+.t10.visible,
+.t11.visible,
+.t12.visible,
+.t14.visible,
+.t15.visible,
+.t16.visible {
+  display: block;
+}
+
+.word {
+  opacity: 0;
+  transition: opacity 800ms;
+  will-change: opacity;
+}
+
+.word.show {
+  opacity: 1;
+}
+
+.sub {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub.visible {
+  opacity: 1;
+}
+
+.sub2 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+/* 각주(sub) 박스는 opacity:0 이어도 클릭을 가로채므로 항상 클릭 통과시킨다.
+   hover 감지는 .text 안의 문단에 걸려 있어 영향 없다. */
+.sub,
+.sub2,
+.sub3,
+.sub4,
+.sub5,
+.sub6,
+.sub7,
+.sub8 {
+  pointer-events: none;
+}
+
+.sub3 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub3.visible {
+  opacity: 1;
+}
+
+.sub4 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub4.visible {
+  opacity: 1;
+}
+
+.sub7 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub7.visible {
+  opacity: 1;
+}
+
+.sub8 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub8.visible {
+  opacity: 1;
+}
+
+.sub5 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub5.visible {
+  opacity: 1;
+}
+
+.sub6 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
+}
+
+.sub6.visible {
+  opacity: 1;
+}
+
+.sub2.visible {
+  opacity: 1;
+}
+
+.scene-image,
+.scene-image-2,
+.scene-image-3,
+.scene-image-4,
+.scene-image-5,
+.scene-image-6,
+.scene-image-7,
+.scene-image-8,
+.scene-image-9,
+.scene-image-10,
+.scene-image-11,
+.scene-image-12,
+.scene-image-13,
+.scene-image-14,
+.scene-image-15,
+.scene-image-16,
+.scene-image-17,
+.scene-image-18,
+.scene-image-19,
+.scene-image-20 {
+  display: none;
+  opacity: 0;
+  transition: opacity 1500ms;
+}
+
+.scene-image.visible,
+.scene-image-2.visible,
+.scene-image-3.visible,
+.scene-image-4.visible,
+.scene-image-5.visible,
+.scene-image-6.visible,
+.scene-image-7.visible,
+.scene-image-8.visible,
+.scene-image-9.visible,
+.scene-image-10.visible,
+.scene-image-11.visible,
+.scene-image-12.visible,
+.scene-image-13.visible,
+.scene-image-14.visible,
+.scene-image-15.visible,
+.scene-image-16.visible,
+.scene-image-17.visible,
+.scene-image-18.visible,
+.scene-image-19.visible,
+.scene-image-20.visible {
+  display: block;
+}
+
+.scene-image.show,
+.scene-image-2.show,
+.scene-image-3.show,
+.scene-image-4.show,
+.scene-image-5.show,
+.scene-image-6.show,
+.scene-image-7.show,
+.scene-image-8.show,
+.scene-image-9.show,
+.scene-image-10.show,
+.scene-image-11.show,
+.scene-image-12.show,
+.scene-image-13.show,
+.scene-image-14.show,
+.scene-image-15.show,
+.scene-image-16.show,
+.scene-image-17.show,
+.scene-image-18.show,
+.scene-image-19.show,
+.scene-image-20.show {
+  opacity: 1;
+}
+
+.scene-image-7 {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-8 {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-9 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 66.5%;
+  height: 66.5%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.scene-image-10 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-11 {
+  position: fixed;
+  bottom: 3%;
+  left: 0;
+  width: 23.1%;
+  height: 23.1%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.hover-image {
+  display: none;
+  position: fixed;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 23.8em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-2 {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 0;
+  width: 23.8em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-2.visible {
+  display: block;
+}
+
+.hover-image-3 {
+  display: none;
+  position: fixed;
+  right: 20%;
+  bottom: 10%;
+  width: 41.06em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-3.visible {
+  display: block;
+}
+
+.hover-image-7 {
+  display: none;
+  position: fixed;
+  left: 50%;
+  bottom: 3%;
+  transform: translateX(-50%);
+  width: 16em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-7.visible {
+  display: block;
+}
+
+.hover-image-9 {
+  display: none;
+  position: fixed;
+  left: 15%;
+  top: 60%;
+  transform: translateY(-50%);
+  width: 23.8em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-9.visible {
+  display: block;
+}
+
+.hover-image-10 {
+  display: none;
+  position: fixed;
+  left: 30%;
+  top: 40%;
+  width: 20em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-10.visible {
+  display: block;
+}
+
+/* t1 문단 좌측 하단. width만 지정 + height:auto 라서 이미지가 잘리지 않음 */
+.hover-image-8 {
+  display: none;
+  position: fixed;
+  left: 10em;
+  top: 13em;
+  width: 15em;
+  height: auto;
+  max-height: 78vh;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-8.visible {
+  display: block;
+}
+
+.hover-image-6 {
+  display: none;
+  position: fixed;
+  left: 10%;
+  top: 10%;
+  width: 30.94em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-6.visible {
+  display: block;
+}
+
+.hover-image-5 {
+  display: none;
+  position: fixed;
+  left: 10%;
+  top: 5%;
+  width: 18.33em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-5.visible {
+  display: block;
+}
+
+.hover-image-4 {
+  display: none;
+  position: fixed;
+  left: 20%;
+  top: 40%;
+  transform: translateY(-50%);
+  width: 23.8em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-4.visible {
+  display: block;
+}
+
+.hover-image.visible {
+  display: block;
+}
+
+.scene-image {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 70%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80.64%;
+  height: 80.64%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.scene-image-3 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 57.5%;
+  height: 57.5%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-5 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  height: 40%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-4 {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-13 {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.scene-image-14 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  height: 40%;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: -1;
+}
+
+.scene-image-15 {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* 세로로 화면을 꽉 채우고 좌우는 여백 허용 */
+.scene-image-16 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.scene-image-17 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+.scene-image-18 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 10%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.scene-image-19 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45%;
+  height: 42%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+.scene-image-20 {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  width: 30%;
+  height: 30%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+.scene-image-6 {
+  position: fixed;
+  bottom: 0;
+  left: 5%;
+  width: 15%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.scene-image-12 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+.bg-imgs {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -2;
+  opacity: 0.35;
+}
+
+.bg-imgs img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.triforce {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90vmin;
+  height: 77.9423vmin;
+  transform: translate(-50%, -50%);
+}
+
+.tri {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tri-top {
+  clip-path: polygon(50% 0%, 25% 50%, 75% 50%);
+}
+
+.tri-left {
+  clip-path: polygon(25% 50%, 0% 100%, 50% 100%);
+}
+
+.tri-right {
+  clip-path: polygon(75% 50%, 50% 100%, 100% 100%);
+}
+
+.tri-imgs {
+  position: absolute;
+  inset: 0;
+}
+
+.tri-imgs img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+.search-form {
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  width: 22%;
+  transform: translateX(-50%);
+}
+
+.search-input {
+  width: 172.41%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: "AppleSDGothicNeoSB00-05", sans-serif;
+  font-size: 2.4em;
+  line-height: 1.25em;
+  word-spacing: -0.07em;
+  text-align: center;
+  padding: 0.3em 0;
+  outline: none;
+  transform: scaleX(0.58);
+  transform-origin: left top;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.search-input::placeholder {
+  color: #666666;
+}
