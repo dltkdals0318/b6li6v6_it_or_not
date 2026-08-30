@@ -2,6 +2,14 @@
   box-sizing: border-box;
 }
 
+/* 루트 폰트 크기 자체를 화면 너비의 비율(vw)로 둔다. 사이트의 모든 글자·여백·
+   이미지가 em 기반이라, 이 한 값이 곧 "화면 대비 글자 크기 비율"이 되고
+   해상도가 달라져도 레이아웃이 똑같은 비율로 유지된다.
+   1vw ≈ 16px @ 1600px. 글자가 크면 숫자를 내리고 작으면 올린다. */
+html {
+  font-size: 1vw;
+}
+
 @font-face {
   font-family: 'AppleSDGothicNeoSB00-05';
   src: url(source/font/AppleSDGothicNeoSB00-05.otf)  format('opentype');
