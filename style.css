@@ -8,12 +8,12 @@
   font-weight: normal;
   font-style: normal;
   unicode-range: U+AC00-D7A3, U+1100-11FF, U+3130-318F, U+3000-3009,
-    U+300C-303F, U+25A0-25CA, U+25CC-25FF, U+4E00-9FFF;
+    U+300A-303F, U+25A0-25CA, U+25CC-25FF, U+4E00-9FFF;
 }
 @font-face {
   font-family: 'AppleSDGothicNeoSB00-05';
   src: url(source/font/CoralPixels-Regular.ttf)  format('opentype');
-  unicode-range: U+0000-02AF, U+2010-2027, U+2030-205E, U+25CB, U+300A-300B;
+  unicode-range: U+0000-02AF, U+2010-2027, U+2030-205E, U+25CB;
   font-weight: normal;
   font-style: normal;
   size-adjust: 110%;
@@ -43,23 +43,37 @@ body {
   padding-right: 1em;
 }
 
-.button {
-  position: absolute;
-  left: 1em;
-  top: 0;
-  padding-right: -4em;
-  cursor: pointer;
-  color: #b321ed;
-  font-size: 2.4em;
-}
-
+.button,
 .search-button {
   position: absolute;
   left: 1em;
-  top: 7%;
   cursor: pointer;
+  color: #fff;
+  font-size: 1.92em;
+  word-spacing: -0.07em;
+  line-height: 1.25em;
+  transform: scaleX(0.58);
+  transform-origin: left top;
+}
+
+.button:hover,
+.search-button:hover {
   color: #b321ed;
-  font-size: 2.4em;
+}
+
+/* 모든 단계가 끝난 "End" 상태: 클릭 불가, 호버 강조 없음 */
+.button.is-end {
+  cursor: default;
+  pointer-events: none;
+}
+
+.button {
+  top: 0.375em;
+  padding-right: -4em;
+}
+
+.search-button {
+  top: 1.625em;
 }
 
 .text {
@@ -82,9 +96,6 @@ body {
 .sub7 p,
 .sub8 p {
   margin: 0;
-  /* 왼끝 맞춤 유지, 줄바꿈만 고르게 다듬기 */
-  text-align: left;
-  text-wrap: pretty;
 }
 
 .text p {
@@ -94,6 +105,9 @@ body {
   width: 172.41%;
   will-change: transform;
   backface-visibility: hidden;
+}
+.text p.tilt {
+  transform: scaleX(0.58) skewX(-11deg);
 }
 
 .t1:hover,
@@ -161,38 +175,6 @@ body {
   opacity: 1;
 }
 
-.sub {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-.sub.visible {
-  opacity: 1;
-}
-
-.sub2 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.8em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-/* 각주(sub) 박스는 opacity:0 이어도 클릭을 가로채므로 항상 클릭 통과시킨다.
-   hover 감지는 .text 안의 문단에 걸려 있어 영향 없다. */
 .sub,
 .sub2,
 .sub3,
@@ -201,112 +183,27 @@ body {
 .sub6,
 .sub7,
 .sub8 {
+  grid-column: 3;
+  grid-row: 1;
+  position: absolute;
+  right: 1em;
+  color: #b321ed;
+  font-size: 0.85em;
+  line-height: 1.4em;
+  opacity: 0;
+  word-spacing: -0.1em;
+  transition: opacity 0s ease;
   pointer-events: none;
 }
 
-.sub3 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-.sub3.visible {
-  opacity: 1;
-}
-
-.sub4 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-.sub4.visible {
-  opacity: 1;
-}
-
-.sub7 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-.sub7.visible {
-  opacity: 1;
-}
-
-.sub8 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
+.sub.visible,
+.sub2.visible,
+.sub3.visible,
+.sub4.visible,
+.sub5.visible,
+.sub6.visible,
+.sub7.visible,
 .sub8.visible {
-  opacity: 1;
-}
-
-.sub5 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-.sub5.visible {
-  opacity: 1;
-}
-
-.sub6 {
-  grid-column: 3;
-  grid-row: 1;
-  position: absolute;
-  right: 1em;
-  color: #b321ed;
-  font-size: 0.85em;
-  line-height: 1.4em;
-  opacity: 0;
-  word-spacing: -0.1em;
-  transition: opacity 0s ease;
-}
-
-.sub6.visible {
-  opacity: 1;
-}
-
-.sub2.visible {
   opacity: 1;
 }
 
@@ -329,7 +226,18 @@ body {
 .scene-image-17,
 .scene-image-18,
 .scene-image-19,
-.scene-image-20 {
+.scene-image-20,
+.scene-image-21,
+.scene-image-22,
+.scene-image-23,
+.scene-image-24,
+.scene-image-25,
+.scene-image-26,
+.scene-image-27,
+.scene-image-28,
+.scene-image-29,
+.scene-image-30,
+.scene-image-31 {
   display: none;
   opacity: 0;
   transition: opacity 1500ms;
@@ -354,7 +262,18 @@ body {
 .scene-image-17.visible,
 .scene-image-18.visible,
 .scene-image-19.visible,
-.scene-image-20.visible {
+.scene-image-20.visible,
+.scene-image-21.visible,
+.scene-image-22.visible,
+.scene-image-23.visible,
+.scene-image-24.visible,
+.scene-image-25.visible,
+.scene-image-26.visible,
+.scene-image-27.visible,
+.scene-image-28.visible,
+.scene-image-29.visible,
+.scene-image-30.visible,
+.scene-image-31.visible {
   display: block;
 }
 
@@ -377,7 +296,18 @@ body {
 .scene-image-17.show,
 .scene-image-18.show,
 .scene-image-19.show,
-.scene-image-20.show {
+.scene-image-20.show,
+.scene-image-21.show,
+.scene-image-22.show,
+.scene-image-23.show,
+.scene-image-24.show,
+.scene-image-25.show,
+.scene-image-26.show,
+.scene-image-27.show,
+.scene-image-28.show,
+.scene-image-29.show,
+.scene-image-30.show,
+.scene-image-31.show {
   opacity: 1;
 }
 
@@ -473,7 +403,7 @@ body {
   display: none;
   position: fixed;
   left: 50%;
-  bottom: 3%;
+  bottom: 23%;
   transform: translateX(-50%);
   width: 16em;
   object-fit: contain;
@@ -481,6 +411,21 @@ body {
 }
 
 .hover-image-7.visible {
+  display: block;
+}
+
+/* t1 단락 우측 하단 */
+.hover-image-11 {
+  display: none;
+  position: fixed;
+  right: 18%;
+  top: 13%;
+  width: 18em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-11.visible {
   display: block;
 }
 
@@ -510,6 +455,51 @@ body {
 }
 
 .hover-image-10.visible {
+  display: block;
+}
+
+/* page15 t1: 글줄 아래 넉넉히, 약간 우측 */
+.hover-image-12 {
+  display: none;
+  position: fixed;
+  left: 42%;
+  top: 30%;
+  width: 15em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-12.visible {
+  display: block;
+}
+
+/* page17 t1: 문단 좌측 하단 */
+.hover-image-13 {
+  display: none;
+  position: fixed;
+  left: 10em;
+  top: 14em;
+  width: 18.2em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-13.visible {
+  display: block;
+}
+
+/* page17 t2: 글줄 살짝 아래 */
+.hover-image-14 {
+  display: none;
+  position: fixed;
+  left: 30%;
+  top: 26%;
+  width: 22.4em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-14.visible {
   display: block;
 }
 
@@ -653,28 +643,28 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   z-index: -1;
 }
 
 /* 세로로 화면을 꽉 채우고 좌우는 여백 허용 */
 .scene-image-16 {
   position: fixed;
-  top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
+  left: 0;
+  height: 50%;
   width: auto;
   object-fit: contain;
+  object-position: bottom left;
   z-index: -1;
 }
 
 .scene-image-17 {
   position: fixed;
   bottom: 0;
-  right: 0;
-  width: 30%;
-  height: 30%;
+  right: 12%;
+  width: 36%;
+  height: 36%;
   object-fit: contain;
   object-position: bottom right;
   z-index: -1;
@@ -684,7 +674,7 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 10%;
+  width: 26%;
   object-fit: contain;
   z-index: -1;
 }
@@ -693,8 +683,8 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 45%;
-  height: 42%;
+  width: 67.5%;
+  height: 63%;
   object-fit: contain;
   object-position: bottom right;
   z-index: -1;
@@ -706,6 +696,134 @@ body {
   right: 5%;
   width: 30%;
   height: 30%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+/* scene-image-16(세로 풀·중앙)에서 크기 50%, 좌로 30% 이동 */
+.scene-image-21 {
+  position: fixed;
+  left: 20%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 50%;
+  width: auto;
+  object-fit: contain;
+  z-index: -1;
+}
+
+/* 문단 오른쪽에 걸쳐 묘하게 겹치는 위치 */
+.scene-image-22 {
+  position: fixed;
+  right: -3%;
+  top: 19%;
+  width: 52%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+.scene-image-23 {
+  position: fixed;
+  bottom: 0;
+  right: 5%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+.scene-image-24 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: -1;
+}
+
+/* page4 t2용: .scene-image(70%)의 절반 크기 */
+.scene-image-25 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 35%;
+  height: 35%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+/* page4 t5용: 우하단, 글과 살짝 겹침(텍스트 뒤) */
+.scene-image-26 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 28%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+/* page16 t4용: 좌측 최하단, 50% */
+.scene-image-31 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: -1;
+}
+
+/* page17 t4용: 좌측 하단 (30% → 1.5배 → 2배) */
+.scene-image-30 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: -1;
+}
+
+/* page10 t3용: 세로로 화면을 여백 없이 꽉 채움(좌우는 여백 허용) */
+.scene-image-29 {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* page15 t2용: 최하단, 중앙에서 좌로 30% 이동 */
+.scene-image-28 {
+  position: fixed;
+  bottom: 0;
+  left: 20%;
+  transform: translateX(-50%);
+  height: 66%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: -1;
+}
+
+/* page13 t1용: 우측 최하단에서 5% 떨어진 위치, 40% */
+.scene-image-27 {
+  position: absolute;
+  bottom: 0;
+  right: 5%;
+  width: 40%;
+  height: 40%;
   object-fit: contain;
   object-position: bottom right;
   z-index: -1;

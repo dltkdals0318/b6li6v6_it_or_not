@@ -8,38 +8,63 @@
   </head>
   <body>
     <div class="main">
-      <div class="button" data-next="page12.html">update</div>
-      <div class="search-button" data-search="../index.html">Search</div>
+      <div class="button" data-next="page12.html">새로고침 update</div>
+      <div class="search-button" data-search="../index.html">검색 search</div>
       <div class="text">
-        <p class="t1">
+        <p class="t1" data-hover-image="hover-image-11" data-hover-sub="sub">
           코카콜라의 개인 캔 제작 서비스에서 예수(Jesus)가 들어간 문구가 입력이
           불가능하다는 현상이 발견되었다. "I love Satan"의 경우 문제 없이
           입력되었지만, "I love Jesus"의 경우 캔에 새길 이름으로 사용할 수 없었다.
         </p>
-        <p class="t2" data-step>
+        <p class="t2" data-step data-show="scene-image-22">
           사실 이 주장은 이번이 처음이 아니었다. 2024년에도 똑같은 형태의 영상이
           돌았는데, 당시 스놉스(Snopes)가 직접 테스트한 결과 "Jesus"와 "Satan"
           모두 동일하게 차단됐다. 즉 2024년 버전은 사실무근으로 판명 났던
           소문이다.
         </p>
-        <p class="t3" data-step>
+        <p class="t3" data-step data-show="scene-image-14" data-hide="scene-image-22" data-hover-sub="sub2">
           그런데 2026년 8월, 같은 주장이 새 영상들과 함께 다시 확산됐다. 이번엔
-          "Allah Is King"도 통과됐다는 주장까지 더해지며 보이콧 운동으로 번졌다.
-          폭스 비즈니스가 직접 테스트해보니 실제 양상은 훨씬 복잡했다. "Jesus is
+          "Allah Is King"도 통과됐다는 주장까지 더해지며 보이콧 운동으로 번졌다. 테스트 결과 실제 양상은 훨씬 복잡했다. "Jesus is
           Lord"뿐 아니라 "Allah is Lord", "Buddha Bless" 같은 다른 종교 문구들도
           함께 차단됐고, 반면 "God is Dead"나 심지어 "Pedophile Pride" 같은 문구는
           그대로 통과됐다. 철자 사이에 띄어쓰기나 숫자만 끼워 넣어도 필터를 손쉽게
           우회할 수 있었다.
         </p>
-        <p class="t4" data-step>
+        <p class="t4" data-step data-hide="scene-image-14">
           2026년 8월 8일, 코카콜라는 이번엔 실제로 "기술적 결함"을 인정했다.
           회사는 미리보기 기능을 즉시 비활성화하고 신규 개인화 주문을 잠정
           중단했다. 다만 실제 생산 전에는 모든 주문이 별도 검수를 거친다고
-          덧붙였다 — 앞서 등장했던 "사람들이 먼저 알려주기 전엔 안 보이던
-          패턴"처럼, 이번에도 진짜 문제(느슨하고 일관성 없는 필터링)와 사람들이
-          믿고 싶어한 서사("예수만 차별한다") 사이엔 거리가 있었던 셈이다.
+          덧붙였다.
         </p>
       </div>
+      <div class="sub">
+        <p>
+          코카콜라 스토어의 캔 개인 맞춤 제작 서비스에서
+          반복적으로 확인된 현상이다. "I love Jesus"나 "Jesus is king" 같은
+          문구는 차단되는 반면 "I love Satan" 등은 통과되는 사례가 2024년과
+          2026년 두 차례에 걸쳐 별도로 검증되었다. 다만 2024년 검증에서는
+          "Allah" 역시 "Jesus"와 함께 차단된 바 있어, 특정 종교를 겨냥한
+          필터라기보다 종교·정치·민감 표현 전반을 거르는 자동 필터링 시스템이
+          비일관적으로 작동한 결과로 보는 시각도 있다. 코카콜라 측은 구체적인
+          필터링 규칙을 공개적으로 설명한 적이 없다.
+        </p>
+      </div>
+      <div class="sub2">
+        <p>
+          2026년 8월 재확산 당시 콘텐츠 제작자 Ryan Haff, 논평가 Isabel Brown
+          등의 테스트 영상이 계기가 되어 Gateway Pundit, IBTimes UK 등을 통해
+          보이콧 촉구 움직임으로 번졌다. 다만 "통과됐다"는 사례 상당수는 문구가
+          결제 전 미리보기 화면까지 도달했다는 뜻이며, 이것이 실제 승인·인쇄·배송을
+          의미하지는 않는다. 테스트 결과는 종교별로 일관되지 않았다 — "Jesus is
+          Lord"와 "Allah is Lord"는 함께 차단된 반면 "Buddha Bless"는 "God Is
+          Dead", "Pedophile Pride"와 함께 통과되는 등, 특정 종교를 겨냥했다기보다
+          자동 필터 자체의 비일관성을 보여주는 사례로 지적된다. 띄어쓰기나 숫자
+          치환으로 필터를 우회하는 것도 어렵지 않았다.
+        </p>
+      </div>
+      <img class="hover-image-11" src="../source/image/11/chrome_Y9cPhV4U3l.png" alt="" />
+      <img class="scene-image-22" src="../source/image/11/코카콜라디스플.jpg" alt="" />
+      <img class="scene-image-14" src="../source/image/11/코카콜라마킹.jpg" alt="" />
     </div>
     <script src="../js/main.js"></script>
   </body>

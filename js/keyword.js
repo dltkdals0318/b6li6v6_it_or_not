@@ -25,8 +25,8 @@ const KEYWORD_ROUTES = [
   {
     page: "html/page3.html",
     keywords: [
-      "메간폭스",
-      "메간 폭스",
+      "메건폭스",
+      "메건 폭스",
       "Megan Fox",
       "MeganFox",
       "meganfox",

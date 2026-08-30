@@ -77,24 +77,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (button) {
     button.addEventListener("click", () => {
-      if (step < steps.length) {
-        const el = steps[step];
-        fadeInWords(el);
-        classNames(el.dataset.hide).forEach((c) => {
-          const img = byClass(c);
-          if (img) fadeOut(img);
-        });
-        classNames(el.dataset.show).forEach((c) => {
-          const img = byClass(c);
-          if (img) fadeIn(img);
-        });
-        if (step === steps.length - 1) {
-          button.textContent = "End";
-        }
-        step++;
-      } else if (button.dataset.next) {
-        window.location.href = button.dataset.next;
+      // 모든 단계가 끝나면 버튼은 "End"로 바뀌고 더는 아무 동작도 하지 않는다.
+      // 다른 페이지는 검색을 통해서만 이동할 수 있다.
+      if (step >= steps.length) return;
+
+      const el = steps[step];
+      fadeInWords(el);
+      classNames(el.dataset.hide).forEach((c) => {
+        const img = byClass(c);
+        if (img) fadeOut(img);
+      });
+      classNames(el.dataset.show).forEach((c) => {
+        const img = byClass(c);
+        if (img) fadeIn(img);
+      });
+      if (step === steps.length - 1) {
+        button.textContent = "End";
+        button.classList.add("is-end");
       }
+      step++;
     });
   }
 
