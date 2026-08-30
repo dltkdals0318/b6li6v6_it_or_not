@@ -141,11 +141,16 @@ function normalizeQuery(str) {
   return (str || "").toLowerCase().replace(/\s+/g, "");
 }
 
+const KEYWORD_INDEX = KEYWORD_ROUTES.map((route) => ({
+  page: route.page,
+  keys: route.keywords.map(normalizeQuery),
+}));
+
 function findRoute(query) {
   const normalized = normalizeQuery(query);
   if (!normalized) return null;
-  const route = KEYWORD_ROUTES.find((r) =>
-    r.keywords.some((keyword) => normalized.includes(normalizeQuery(keyword))),
+  const route = KEYWORD_INDEX.find((r) =>
+    r.keys.some((key) => normalized.includes(key)),
   );
   return route ? route.page : null;
 }

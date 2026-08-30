@@ -2,25 +2,23 @@
   box-sizing: border-box;
 }
 
-/* 루트 폰트 크기 자체를 화면 너비의 비율(vw)로 둔다. 사이트의 모든 글자·여백·
-   이미지가 em 기반이라, 이 한 값이 곧 "화면 대비 글자 크기 비율"이 되고
-   해상도가 달라져도 레이아웃이 똑같은 비율로 유지된다.
-   1vw ≈ 16px @ 1600px. 글자가 크면 숫자를 내리고 작으면 올린다. */
 html {
   font-size: 1vw;
+  scrollbar-color: #b321ed #000000;
 }
 
 @font-face {
-  font-family: 'AppleSDGothicNeoSB00-05';
-  src: url(source/font/AppleSDGothicNeoSB00-05.otf)  format('opentype');
+  font-family: "AppleSDGothicNeoSB00-05";
+  src: url(source/font/AppleSDGothicNeoSB00-05.otf) format("opentype");
   font-weight: normal;
   font-style: normal;
-  unicode-range: U+AC00-D7A3, U+1100-11FF, U+3130-318F, U+3000-3009,
-    U+300A-303F, U+25A0-25CA, U+25CC-25FF, U+4E00-9FFF;
+  unicode-range:
+    U+AC00-D7A3, U+1100-11FF, U+3130-318F, U+3000-3009, U+300A-303F,
+    U+25A0-25CA, U+25CC-25FF, U+4E00-9FFF;
 }
 @font-face {
-  font-family: 'AppleSDGothicNeoSB00-05';
-  src: url(source/font/CoralPixels-Regular.ttf)  format('opentype');
+  font-family: "AppleSDGothicNeoSB00-05";
+  src: url(source/font/CoralPixels-Regular.ttf) format("truetype");
   unicode-range: U+0000-02AF, U+2010-2027, U+2030-205E, U+25CB;
   font-weight: normal;
   font-style: normal;
@@ -30,7 +28,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'AppleSDGothicNeoSB00-05', sans-serif;
+  font-family: "AppleSDGothicNeoSB00-05", sans-serif;
   word-break: keep-all;
   overflow-wrap: break-word;
   background-color: #000000;
@@ -41,10 +39,6 @@ body {
   color: #1e1c24;
 }
 
-/* 스크롤바 색 */
-html {
-  scrollbar-color: #b321ed #000000; /* Firefox: thumb, track */
-}
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -84,7 +78,6 @@ html {
   color: #b321ed;
 }
 
-/* 모든 단계가 끝난 "End" 상태: 클릭 불가, 호버 강조 없음 */
 .button.is-end {
   cursor: default;
   pointer-events: none;
@@ -92,7 +85,6 @@ html {
 
 .button {
   top: 0.375em;
-  padding-right: -4em;
 }
 
 .search-button {
@@ -234,7 +226,6 @@ html {
 .scene-image-2,
 .scene-image-3,
 .scene-image-4,
-.scene-image-5,
 .scene-image-6,
 .scene-image-7,
 .scene-image-8,
@@ -279,7 +270,6 @@ html {
 .scene-image-2.visible,
 .scene-image-3.visible,
 .scene-image-4.visible,
-.scene-image-5.visible,
 .scene-image-6.visible,
 .scene-image-7.visible,
 .scene-image-8.visible,
@@ -322,7 +312,6 @@ html {
 .scene-image-2.show,
 .scene-image-3.show,
 .scene-image-4.show,
-.scene-image-5.show,
 .scene-image-6.show,
 .scene-image-7.show,
 .scene-image-8.show,
@@ -464,7 +453,6 @@ html {
   display: block;
 }
 
-/* t1 단락 우측 하단 */
 .hover-image-11 {
   display: none;
   position: fixed;
@@ -508,7 +496,6 @@ html {
   display: block;
 }
 
-/* page15 t1: 글줄 아래 넉넉히, 약간 우측 */
 .hover-image-12 {
   display: none;
   position: fixed;
@@ -523,7 +510,6 @@ html {
   display: block;
 }
 
-/* page17 t1: 문단 좌측 하단 */
 .hover-image-13 {
   display: none;
   position: fixed;
@@ -538,7 +524,6 @@ html {
   display: block;
 }
 
-/* page17 t2: 글줄 살짝 아래 */
 .hover-image-14 {
   display: none;
   position: fixed;
@@ -553,7 +538,6 @@ html {
   display: block;
 }
 
-/* page13 t2: 문단 아래 */
 .hover-image-15 {
   display: none;
   position: fixed;
@@ -568,7 +552,6 @@ html {
   display: block;
 }
 
-/* page14 t3: 왼쪽 여백 */
 .hover-image-16 {
   display: none;
   position: fixed;
@@ -583,7 +566,6 @@ html {
   display: block;
 }
 
-/* page14 t4: 왼쪽 하단 */
 .hover-image-17 {
   display: none;
   position: fixed;
@@ -598,7 +580,6 @@ html {
   display: block;
 }
 
-/* t1 문단 좌측 하단. width만 지정 + height:auto 라서 이미지가 잘리지 않음 */
 .hover-image-8 {
   display: none;
   position: fixed;
@@ -692,16 +673,6 @@ html {
   z-index: -1;
 }
 
-.scene-image-5 {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  width: 40%;
-  height: 40%;
-  object-fit: cover;
-  z-index: -1;
-}
-
 .scene-image-4 {
   position: fixed;
   bottom: 0;
@@ -732,7 +703,6 @@ html {
   z-index: -1;
 }
 
-/* page14 t4용: 전체화면 */
 .scene-image-40 {
   position: fixed;
   inset: 0;
@@ -742,7 +712,6 @@ html {
   z-index: -1;
 }
 
-/* page14 t2용: 오른쪽에서 글자와 묘하게 겹침(텍스트 뒤) */
 .scene-image-39 {
   position: fixed;
   right: -2%;
@@ -752,7 +721,6 @@ html {
   z-index: -1;
 }
 
-/* page15 t4용: 우측에 붙임 */
 .scene-image-38 {
   position: fixed;
   top: 0;
@@ -764,7 +732,6 @@ html {
   z-index: -1;
 }
 
-/* page13 t4용: 최하단, 우측, 47.5% */
 .scene-image-37 {
   position: fixed;
   bottom: 0;
@@ -777,7 +744,6 @@ html {
   z-index: -1;
 }
 
-/* page9 t5용: 좌측 하단 */
 .scene-image-36 {
   position: fixed;
   bottom: 2%;
@@ -789,7 +755,6 @@ html {
   z-index: -1;
 }
 
-/* page8 t5용: 전체화면에서 40% 축소 (우하단) */
 .scene-image-35 {
   position: fixed;
   bottom: 0;
@@ -801,7 +766,6 @@ html {
   z-index: -1;
 }
 
-/* page7 t3용: scene-image-14에서 5% 확대 */
 .scene-image-34 {
   position: fixed;
   bottom: 0;
@@ -823,7 +787,6 @@ html {
   z-index: -1;
 }
 
-/* 세로로 화면을 꽉 채우고 좌우는 여백 허용 */
 .scene-image-16 {
   position: fixed;
   bottom: 0;
@@ -832,7 +795,6 @@ html {
   width: auto;
   object-fit: contain;
   object-position: bottom left;
-  /* 이미지 가장자리의 테두리처럼 보이는 여백을 잘라냄 */
   clip-path: inset(3%);
   z-index: -1;
 }
@@ -879,7 +841,6 @@ html {
   z-index: -1;
 }
 
-/* scene-image-16(세로 풀·중앙)에서 크기 50%, 좌로 30% 이동 */
 .scene-image-21 {
   position: fixed;
   left: 20%;
@@ -891,7 +852,6 @@ html {
   z-index: -1;
 }
 
-/* 문단 오른쪽에 걸쳐 묘하게 겹치는 위치 */
 .scene-image-22 {
   position: fixed;
   right: -3%;
@@ -923,7 +883,6 @@ html {
   z-index: -1;
 }
 
-/* page4 t2용 */
 .scene-image-25 {
   position: absolute;
   bottom: 0;
@@ -935,7 +894,6 @@ html {
   z-index: -1;
 }
 
-/* page4 t5용: 우측 최상단 */
 .scene-image-26 {
   position: fixed;
   top: 0;
@@ -945,7 +903,6 @@ html {
   z-index: -1;
 }
 
-/* page16 t2용 (우하단 기준, 좌로 6% 이동) */
 .scene-image-33 {
   position: fixed;
   bottom: 0;
@@ -957,7 +914,6 @@ html {
   z-index: -1;
 }
 
-/* page16 t4용: 좌측 최하단에서 5% 떨어진 위치, 1/3 크기 */
 .scene-image-31 {
   position: fixed;
   bottom: 0;
@@ -969,7 +925,6 @@ html {
   z-index: -1;
 }
 
-/* page17 t4용: 좌측 하단 */
 .scene-image-30 {
   position: fixed;
   bottom: 0;
@@ -981,7 +936,6 @@ html {
   z-index: -1;
 }
 
-/* page10 t3용: 좌측 최하단에서 우측으로 3%, 60% 크기 */
 .scene-image-29 {
   position: fixed;
   bottom: 0;
@@ -993,7 +947,6 @@ html {
   z-index: -1;
 }
 
-/* page15 t2용: 최하단, 중앙에서 좌로 30% 이동 */
 .scene-image-28 {
   position: fixed;
   bottom: 0;
@@ -1006,7 +959,6 @@ html {
   z-index: -1;
 }
 
-/* page13 t1용: 우측 최하단에서 5% 떨어진 위치, 40% */
 .scene-image-27 {
   position: absolute;
   bottom: 0;
@@ -1038,7 +990,6 @@ html {
   z-index: -1;
 }
 
-/* page4 t1용: 좌측 최하단에서 우측으로 2% */
 .scene-image-32 {
   position: absolute;
   bottom: 0;

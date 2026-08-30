@@ -1,13 +1,15 @@
 function wrapWords(el) {
   const words = el.textContent.trim().split(/\s+/);
-  el.textContent = "";
+  const frag = document.createDocumentFragment();
   words.forEach((word, i) => {
     const span = document.createElement("span");
     span.className = "word";
     span.textContent = word;
-    el.appendChild(span);
-    if (i < words.length - 1) el.appendChild(document.createTextNode(" "));
+    frag.appendChild(span);
+    if (i < words.length - 1) frag.appendChild(document.createTextNode(" "));
   });
+  el.textContent = "";
+  el.appendChild(frag);
 }
 
 function fadeInWords(el, stagger = 10) {
@@ -49,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   steps.forEach(wrapWords);
 
+  const stepPlans = steps.map((el) => ({
+    el,
+    hide: classNames(el.dataset.hide).map(byClass).filter(Boolean),
+    show: classNames(el.dataset.show).map(byClass).filter(Boolean),
+  }));
+
   document
     .querySelectorAll("[data-hover-sub], [data-hover-image]")
     .forEach((el) => {
@@ -77,21 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (button) {
     button.addEventListener("click", () => {
-      // 모든 단계가 끝나면 버튼은 "End"로 바뀌고 더는 아무 동작도 하지 않는다.
-      // 다른 페이지는 검색을 통해서만 이동할 수 있다.
-      if (step >= steps.length) return;
+      if (step >= stepPlans.length) return;
 
-      const el = steps[step];
-      fadeInWords(el);
-      classNames(el.dataset.hide).forEach((c) => {
-        const img = byClass(c);
-        if (img) fadeOut(img);
-      });
-      classNames(el.dataset.show).forEach((c) => {
-        const img = byClass(c);
-        if (img) fadeIn(img);
-      });
-      if (step === steps.length - 1) {
+      const plan = stepPlans[step];
+      fadeInWords(plan.el);
+      plan.hide.forEach(fadeOut);
+      plan.show.forEach(fadeIn);
+      if (step === stepPlans.length - 1) {
         button.textContent = "End";
         button.classList.add("is-end");
       }
