@@ -41,6 +41,21 @@ body {
   color: #1e1c24;
 }
 
+/* 스크롤바 색 */
+html {
+  scrollbar-color: #b321ed #000000; /* Firefox: thumb, track */
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #b321ed;
+}
+
 .main {
   position: relative;
   display: grid;
@@ -245,7 +260,16 @@ body {
 .scene-image-28,
 .scene-image-29,
 .scene-image-30,
-.scene-image-31 {
+.scene-image-31,
+.scene-image-32,
+.scene-image-33,
+.scene-image-34,
+.scene-image-35,
+.scene-image-36,
+.scene-image-37,
+.scene-image-38,
+.scene-image-39,
+.scene-image-40 {
   display: none;
   opacity: 0;
   transition: opacity 1500ms;
@@ -281,7 +305,16 @@ body {
 .scene-image-28.visible,
 .scene-image-29.visible,
 .scene-image-30.visible,
-.scene-image-31.visible {
+.scene-image-31.visible,
+.scene-image-32.visible,
+.scene-image-33.visible,
+.scene-image-34.visible,
+.scene-image-35.visible,
+.scene-image-36.visible,
+.scene-image-37.visible,
+.scene-image-38.visible,
+.scene-image-39.visible,
+.scene-image-40.visible {
   display: block;
 }
 
@@ -315,7 +348,16 @@ body {
 .scene-image-28.show,
 .scene-image-29.show,
 .scene-image-30.show,
-.scene-image-31.show {
+.scene-image-31.show,
+.scene-image-32.show,
+.scene-image-33.show,
+.scene-image-34.show,
+.scene-image-35.show,
+.scene-image-36.show,
+.scene-image-37.show,
+.scene-image-38.show,
+.scene-image-39.show,
+.scene-image-40.show {
   opacity: 1;
 }
 
@@ -440,7 +482,7 @@ body {
 .hover-image-9 {
   display: none;
   position: fixed;
-  left: 15%;
+  left: 5%;
   top: 60%;
   transform: translateY(-50%);
   width: 23.8em;
@@ -455,7 +497,7 @@ body {
 .hover-image-10 {
   display: none;
   position: fixed;
-  left: 30%;
+  left: 40%;
   top: 40%;
   width: 20em;
   object-fit: contain;
@@ -508,6 +550,51 @@ body {
 }
 
 .hover-image-14.visible {
+  display: block;
+}
+
+/* page13 t2: 문단 아래 */
+.hover-image-15 {
+  display: none;
+  position: fixed;
+  left: 30%;
+  top: 32%;
+  width: 12em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-15.visible {
+  display: block;
+}
+
+/* page14 t3: 왼쪽 여백 */
+.hover-image-16 {
+  display: none;
+  position: fixed;
+  left: 3%;
+  top: 38%;
+  width: 11em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-16.visible {
+  display: block;
+}
+
+/* page14 t4: 왼쪽 하단 */
+.hover-image-17 {
+  display: none;
+  position: fixed;
+  left: 3%;
+  bottom: 3%;
+  width: 18em;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.hover-image-17.visible {
   display: block;
 }
 
@@ -589,8 +676,8 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 80.64%;
-  height: 80.64%;
+  width: 40.32%;
+  height: 40.32%;
   object-fit: contain;
   z-index: -1;
 }
@@ -598,9 +685,9 @@ body {
 .scene-image-3 {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 57.5%;
-  height: 57.5%;
+  left: 5%;
+  width: 38.33%;
+  height: 38.33%;
   object-fit: cover;
   z-index: -1;
 }
@@ -645,6 +732,87 @@ body {
   z-index: -1;
 }
 
+/* page14 t4용: 전체화면 */
+.scene-image-40 {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* page14 t2용: 오른쪽에서 글자와 묘하게 겹침(텍스트 뒤) */
+.scene-image-39 {
+  position: fixed;
+  right: -2%;
+  top: 15%;
+  width: 45%;
+  object-fit: contain;
+  z-index: -1;
+}
+
+/* page15 t4용: 우측에 붙임 */
+.scene-image-38 {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 60%;
+  width: auto;
+  object-fit: contain;
+  object-position: top right;
+  z-index: -1;
+}
+
+/* page13 t4용: 최하단, 우측, 47.5% */
+.scene-image-37 {
+  position: fixed;
+  bottom: 0;
+  left: 75%;
+  transform: translateX(-50%);
+  height: 47.5%;
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  z-index: -1;
+}
+
+/* page9 t5용: 좌측 하단 */
+.scene-image-36 {
+  position: fixed;
+  bottom: 2%;
+  left: 0;
+  width: 35%;
+  height: 35%;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: -1;
+}
+
+/* page8 t5용: 전체화면에서 40% 축소 (우하단) */
+.scene-image-35 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+/* page7 t3용: scene-image-14에서 5% 확대 */
+.scene-image-34 {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 42%;
+  height: 42%;
+  object-fit: contain;
+  object-position: bottom left;
+  z-index: -1;
+}
+
 .scene-image-15 {
   position: fixed;
   inset: 0;
@@ -660,10 +828,12 @@ body {
   position: fixed;
   bottom: 0;
   left: 0;
-  height: 50%;
+  height: 54%;
   width: auto;
   object-fit: contain;
   object-position: bottom left;
+  /* 이미지 가장자리의 테두리처럼 보이는 여백을 잘라냄 */
+  clip-path: inset(3%);
   z-index: -1;
 }
 
@@ -671,8 +841,8 @@ body {
   position: fixed;
   bottom: 0;
   right: 12%;
-  width: 36%;
-  height: 36%;
+  width: 32.4%;
+  height: 32.4%;
   object-fit: contain;
   object-position: bottom right;
   z-index: -1;
@@ -690,7 +860,7 @@ body {
 .scene-image-19 {
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 7%;
   width: 67.5%;
   height: 63%;
   object-fit: contain;
@@ -702,8 +872,8 @@ body {
   position: fixed;
   bottom: 0;
   right: 5%;
-  width: 30%;
-  height: 30%;
+  width: 81%;
+  height: 81%;
   object-fit: contain;
   object-position: bottom right;
   z-index: -1;
@@ -713,9 +883,9 @@ body {
 .scene-image-21 {
   position: fixed;
   left: 20%;
-  bottom: 0;
+  top: 40%;
   transform: translateX(-50%);
-  height: 50%;
+  height: 60%;
   width: auto;
   object-fit: contain;
   z-index: -1;
@@ -753,62 +923,73 @@ body {
   z-index: -1;
 }
 
-/* page4 t2용: .scene-image(70%)의 절반 크기 */
+/* page4 t2용 */
 .scene-image-25 {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 35%;
-  height: 35%;
+  width: 70%;
+  height: 70%;
   object-fit: contain;
   object-position: bottom right;
   z-index: -1;
 }
 
-/* page4 t5용: 우하단, 글과 살짝 겹침(텍스트 뒤) */
+/* page4 t5용: 우측 최상단 */
 .scene-image-26 {
   position: fixed;
-  bottom: 0;
+  top: 0;
   right: 0;
-  width: 28%;
+  width: 23.8%;
   object-fit: contain;
   z-index: -1;
 }
 
-/* page16 t4용: 좌측 최하단, 50% */
+/* page16 t2용 (우하단 기준, 좌로 6% 이동) */
+.scene-image-33 {
+  position: fixed;
+  bottom: 0;
+  right: 6%;
+  width: 40%;
+  height: 40%;
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: -1;
+}
+
+/* page16 t4용: 좌측 최하단에서 5% 떨어진 위치, 1/3 크기 */
 .scene-image-31 {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 50%;
-  height: 50%;
+  left: 5%;
+  width: 16.7%;
+  height: 16.7%;
   object-fit: contain;
   object-position: bottom left;
   z-index: -1;
 }
 
-/* page17 t4용: 좌측 하단 (30% → 1.5배 → 2배) */
+/* page17 t4용: 좌측 하단 */
 .scene-image-30 {
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 90%;
-  height: 90%;
+  width: 58.5%;
+  height: 58.5%;
   object-fit: contain;
   object-position: bottom left;
   z-index: -1;
 }
 
-/* page10 t3용: 세로로 화면을 여백 없이 꽉 채움(좌우는 여백 허용) */
+/* page10 t3용: 좌측 최하단에서 우측으로 3%, 60% 크기 */
 .scene-image-29 {
   position: fixed;
-  top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100%;
+  left: 3%;
+  height: 60%;
   width: auto;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: bottom left;
   z-index: -1;
 }
 
@@ -818,7 +999,7 @@ body {
   bottom: 0;
   left: 20%;
   transform: translateX(-50%);
-  height: 66%;
+  height: 69.3%;
   width: auto;
   object-fit: contain;
   object-position: bottom center;
@@ -854,6 +1035,18 @@ body {
   height: 50%;
   object-fit: contain;
   object-position: bottom right;
+  z-index: -1;
+}
+
+/* page4 t1용: 좌측 최하단에서 우측으로 2% */
+.scene-image-32 {
+  position: absolute;
+  bottom: 0;
+  left: 2%;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  object-position: bottom left;
   z-index: -1;
 }
 
