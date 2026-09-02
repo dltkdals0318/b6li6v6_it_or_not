@@ -119,7 +119,7 @@ const KEYWORD_ROUTES = [
   },
   {
     page: "html/page15.html",
-    keywords: ["펜타그램", "Pentagram", "pentagram"],
+    keywords: ["펜타그램", "펜타그렘", "Pentagram", "pentagram"],
   },
   {
     page: "html/page16.html",
